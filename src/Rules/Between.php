@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 class Between extends Rule
 {
@@ -23,7 +21,6 @@ class Between extends Rule
      */
     public function __construct($lower, $upper)
     {
-
         $this->lower = $lower;
         $this->upper = $upper;
     }
@@ -37,11 +34,11 @@ class Between extends Rule
      */
     public function passes($field, $value, $data): bool
     {
-        if(strlen($value) < $this->lower){
+        if (strlen($value) < $this->lower) {
             return false;
         }
 
-        if(strlen($value) > $this->lower){
+        if (strlen($value) > $this->lower) {
             return false;
         }
 
@@ -55,6 +52,6 @@ class Between extends Rule
      */
     public function message($field): string
     {
-        return $field. ' Must Be Between '.$this->lower.' And '.$this->upper.' Characters';
+        return $field.' Must Be Between '.$this->lower.' And '.$this->upper.' Characters';
     }
 }

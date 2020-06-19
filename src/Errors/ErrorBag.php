@@ -1,28 +1,28 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Errors;
-
 
 class ErrorBag
 {
     /**
      * @var array
      */
-    protected  $errors = [];
+    protected $errors = [];
 
     /**
      * @param $key
      * @param $value
      */
-    public function add($key, $value){
+    public function add($key, $value)
+    {
         $this->errors[$key][] = $value;
     }
 
     /**
      * @return array
      */
-    public function getErrors(){
+    public function getErrors()
+    {
         return $this->errors;
     }
 

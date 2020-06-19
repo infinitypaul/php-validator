@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 use Infinitypaul\Validator\Validator;
 
@@ -18,12 +16,10 @@ class RequiredWith extends Rule
         $this->fields = $fields;
     }
 
-
-
     public function passes($field, $value, $data): bool
     {
-        foreach ($this->fields as $field){
-            if($value === '' && $data[$field] !== ''){
+        foreach ($this->fields as $field) {
+            if ($value === '' && $data[$field] !== '') {
                 return false;
             }
         }
@@ -33,6 +29,6 @@ class RequiredWith extends Rule
 
     public function message($field): string
     {
-        return $field. ' Is Required With '.implode(',', Validator::aliases($this->fields));
+        return $field.' Is Required With '.implode(',', Validator::aliases($this->fields));
     }
 }
