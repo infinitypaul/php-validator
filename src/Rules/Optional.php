@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 class Optional extends Rule
 {
-
     /**
      * @param $field
      * @param $value

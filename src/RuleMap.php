@@ -1,10 +1,13 @@
 <?php
 
-
 namespace Infinitypaul\Validator;
 
-
-use Infinitypaul\Validator\Rules\{Between, Email, Max, Optional, Required, RequiredWith};
+use Infinitypaul\Validator\Rules\Between;
+use Infinitypaul\Validator\Rules\Email;
+use Infinitypaul\Validator\Rules\Max;
+use Infinitypaul\Validator\Rules\Optional;
+use Infinitypaul\Validator\Rules\Required;
+use Infinitypaul\Validator\Rules\RequiredWith;
 
 class RuleMap
 {
@@ -17,7 +20,7 @@ class RuleMap
         'max' => Max::class,
         'between' => Between::class,
         'required_with'=> RequiredWith::class,
-        'optional' => Optional::class
+        'optional' => Optional::class,
     ];
 
     /**
@@ -26,7 +29,8 @@ class RuleMap
      *
      * @return mixed
      */
-    public static function resolve($rule, $options){
+    public static function resolve($rule, $options)
+    {
         return new static::$map[$rule](...$options);
     }
 }

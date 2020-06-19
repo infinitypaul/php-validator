@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 class Required extends Rule
 {
@@ -16,7 +14,7 @@ class Required extends Rule
      */
     public function passes($field, $value, $data): bool
     {
-        return !empty($value);
+        return ! empty($value);
     }
 
     /**
@@ -26,6 +24,6 @@ class Required extends Rule
      */
     public function message($field): string
     {
-        return $field. ' Is Required';
+        return $field.' Is Required';
     }
 }

@@ -1,12 +1,9 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 class Max extends Rule
 {
-
     /**
      * @var int
      */
@@ -30,7 +27,7 @@ class Max extends Rule
      *
      * @return bool
      */
-    public function passes($field, $value, $data) : bool
+    public function passes($field, $value, $data): bool
     {
         return strlen($value) < $this->max;
     }
@@ -42,6 +39,6 @@ class Max extends Rule
      */
     public function message($field): string
     {
-        return $field. ' Must Be A Max Of '.$this->max.' Characters';
+        return $field.' Must Be A Max Of '.$this->max.' Characters';
     }
 }
