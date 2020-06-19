@@ -61,7 +61,7 @@ we pass the desired validation rules into the `setRules()` method. Again, if the
 
 ### Displaying The Validation Errors
 
-So, what if the incoming  parameters do not pass the given validation rules? The errors will be able in the `getErrors()` method like the the above
+So, what if the incoming  parameters do not pass the given validation rules? The errors will be able in the `getErrors()` method like  the above
 
 ```php
     $validator->getErrors();
@@ -176,12 +176,12 @@ $validator->setRules([
 
 Below is a list of all available validation rules and their function
 
-* Required
-* Email
-* Max
-* RequiredWith
-* Optional
-* Between
+* [Required](#required-)
+* [Email](#email-)
+* [Max](#max-)
+* [RequiredWith](#requiredwith-)
+* [Optional](#optional-)
+* [Between](#between-)
 
 
 ##### Required :
