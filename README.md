@@ -1,11 +1,11 @@
-# Very short description of the package
+# Flexible PHP Validation Class
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/infinitypaul/php-validator.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/php-validator)
 [![Build Status](https://img.shields.io/travis/infinitypaul/php-validator/master.svg?style=flat-square)](https://travis-ci.org/infinitypaul/php-validator)
 [![Quality Score](https://img.shields.io/scrutinizer/g/infinitypaul/php-validator.svg?style=flat-square)](https://scrutinizer-ci.com/g/infinitypaul/php-validator)
 [![Total Downloads](https://img.shields.io/packagist/dt/infinitypaul/php-validator.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/php-validator)
 
-It provides several different approaches to validate your application's incoming data
+Provides several different approaches to validate your application's incoming data
 
 ## Installation
 
@@ -35,6 +35,16 @@ composer require infinitypaul/php-validator
                 var_dump('Passed');
             }
 >
+```
+
+### Writing The Validation Logic
+We pass the field we intend to validate into the `Validator` class
+
+```php
+new Validator([
+                'full_name' => 'Edward Paul',
+                'email' => 'infinitypaul@live.com'
+            ]);
 ```
 
 ### Validation Rules
@@ -174,11 +184,56 @@ Below is a list of all available validation rules and their function
 * Between
 
 
-### Testing
+##### Required :
 
-``` bash
-composer test
+The field under validation must be present in the input data and not empty.
+
+##### Email :
+
+The field under validation must be formatted as an e-mail address
+
+##### Max :
+The field under validation must be less than or equal to a maximum value
+
 ```
+max:20
+```
+##### RequiredWith :
+
+The field under validation must be present and not empty only if all of the other specified fields are present.
+
+```
+  required_with:lastName,middle
+```
+
+##### Between :
+
+The field under validation must have a size between the given min and max
+
+```
+between:10,20
+```
+
+##### Optional :
+
+The field under validation may be null. This is particularly useful when validating primitive such as strings and integers that can contain null values.
+
+```
+optional
+```
+
+### Note
+
+I intend to keep adding more rules to the package but If you have any additional rules you will like me to add to this, you can reach out to me or open an issue in that regard.
+
+## How can I thank you?
+
+Why not star the github repo? I'd love the attention! Why not share the link for this repository on Twitter or HackerNews? Spread the word!
+
+Don't forget to [follow me on twitter](https://twitter.com/infinitypaul) || [or on medium](https://medium.com/@infinitypaul)
+
+Thanks!
+Edward Paul.
 
 ### Changelog
 
@@ -188,19 +243,12 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+### Bug & Features
 
-If you discover any security related issues, please email infinitypaul@live.com instead of using the issue tracker.
+If you have spotted any bugs, or would like to request additional features from the library, please file an issue via the Issue Tracker on the project's Github page: [https://github.com/infinitypaul/php-validator/issues](https://github.com/infinitypaul/php-validator/issues).
 
-## Credits
-
-- [Paul Edward](https://github.com/infinitypaul)
-- [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-## PHP Package Boilerplate
-
-This package was generated using the [PHP Package Boilerplate](https://laravelpackageboilerplate.com).
