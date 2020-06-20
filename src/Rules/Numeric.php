@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 class Numeric extends Rule
 {

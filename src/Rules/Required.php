@@ -14,7 +14,7 @@ class Required extends Rule
      */
     public function passes($field, $value, $data): bool
     {
-        return trim((string)$value) !== '';
+        return trim((string) $value) !== '';
     }
 
     /**

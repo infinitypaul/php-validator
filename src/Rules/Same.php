@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Infinitypaul\Validator\Rules;
-
 
 use Infinitypaul\Validator\Validator;
 
@@ -17,7 +15,6 @@ class Same extends Rule
      */
     public function __construct($field)
     {
-
         $this->field = $field;
     }
 
@@ -30,9 +27,10 @@ class Same extends Rule
      */
     public function passes($field, $value, $data): bool
     {
-        if($value === $data[$this->field]){
+        if ($value === $data[$this->field]) {
             return true;
         }
+
         return false;
     }
 
@@ -43,6 +41,6 @@ class Same extends Rule
      */
     public function message($field): string
     {
-        return $field.' Doesnt Match With '. Validator::alias($this->field);
+        return $field.' Doesnt Match With '.Validator::alias($this->field);
     }
 }
