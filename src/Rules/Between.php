@@ -34,11 +34,11 @@ class Between extends Rule
      */
     public function passes($field, $value, $data): bool
     {
-        if (strlen($value) < $this->lower) {
+        if (strlen($value) < (int)$this->lower) {
             return false;
         }
 
-        if (strlen($value) > $this->lower) {
+        if (strlen($value) > (int)$this->lower) {
             return false;
         }
 

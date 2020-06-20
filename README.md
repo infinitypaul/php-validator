@@ -134,14 +134,14 @@ $validator->setRules([
 
 ### Custom Validation Rules
 
-You may wish to specify some of your own. One method of registering custom validation rules is extending the Rule Class
+You may wish to specify some of your own rules. One method of registering custom validation rules is extending the Rule Class
 
-Once the custom rule class has been created, we are ready to define its behavior. A rule object contains two methods: passes and message. The passes method receives the field value, name and data, and should return true or false depending on whether the attribute value is valid or not. The message method should return the validation error message that should be used when validation fails:
+Once the custom rule class has been created, we are ready to define its behavior. A rule object contains two methods: passes and message. The passes method receives the field, value, and data, and should return true or false depending on whether the value is valid or not. The message method should return the validation error message that should be used when validation fails:
 
 ```php
 use Infinitypaul\Validator\Rules\Rule;
 
-class Uppercase implements Rule
+class Uppercase extends Rule
 {
 //Determine if the validation rule passes
  public function passes($field, $value, $data): bool
@@ -182,6 +182,10 @@ Below is a list of all available validation rules and their function
 * [RequiredWith](#requiredwith-)
 * [Optional](#optional-)
 * [Between](#between-)
+* [Image](#image-)
+* [Same](#same-)
+* [Confirmed](#confirmed-)
+* [Numeric](#numeric-)
 
 
 ##### Required :
@@ -222,9 +226,40 @@ The field under validation may be null. This is particularly useful when validat
 optional
 ```
 
+##### Image :
+
+The file under validation must be an image (jpeg, png, bmp, gif, svg, or webp), the image `tmp_name` is what you need to pass to the validator
+
+```php
+$validator =  new Validator([
+           'picture' => $_FILES['image']['tmp_name'],
+       ]);
+
+$validator->setRules([
+        'picture' => 'image'
+]);
+```
+##### Same :
+
+The given field must match the field under validation.
+
+```
+same:captha
+```
+##### Confirmed :
+
+The field under validation must have a matching field of foo_confirmation. For example, if the field under validation is password, a matching password_confirmation field must be present in the input.
+
+##### Numeric :
+
+The field under validation must be numeric.
+
+
 ### Note
 
 I intend to keep adding more rules to the package but If you have any additional rules you will like me to add to this, you can reach out to me or open an issue in that regard.
+
+
 
 ## How can I thank you?
 

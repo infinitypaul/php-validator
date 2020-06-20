@@ -1,20 +1,21 @@
 <?php
 
+
 namespace Infinitypaul\Validator\Rules;
 
-class Required extends Rule
+
+class Numeric extends Rule
 {
     /**
      * @param $field
      * @param $value
-     *
      * @param $data
      *
      * @return bool
      */
     public function passes($field, $value, $data): bool
     {
-        return trim((string)$value) !== '';
+        return is_numeric($value);
     }
 
     /**
@@ -24,6 +25,6 @@ class Required extends Rule
      */
     public function message($field): string
     {
-        return $field.' Is Required';
+        return $field.' Is Not A Number';
     }
 }

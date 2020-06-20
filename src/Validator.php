@@ -173,7 +173,8 @@ class Validator
         //Take The keys for the data
         $dataKeys = array_keys($this->data);
         //Find The Value That Relate
-        return preg_grep('/^'.$fieldRegex.'/', $dataKeys);
+        //return preg_grep('/^'.$fieldRegex.'/', $dataKeys);
+        return preg_grep('/^' . $fieldRegex . '$/', $dataKeys);
     }
 
     /**

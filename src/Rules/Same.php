@@ -1,35 +1,39 @@
 <?php
 
+
 namespace Infinitypaul\Validator\Rules;
 
-class Max extends Rule
+
+use Infinitypaul\Validator\Validator;
+
+class Same extends Rule
 {
-    /**
-     * @var int
-     */
-    protected $max;
+    protected $field;
 
     /**
-     * Max constructor.
+     * Same constructor.
      *
-     * @param $max
+     * @param $field
      */
-    public function __construct($max)
+    public function __construct($field)
     {
-        $this->max = $max;
+
+        $this->field = $field;
     }
 
     /**
      * @param $field
      * @param $value
-     *
      * @param $data
      *
      * @return bool
      */
     public function passes($field, $value, $data): bool
     {
-        return strlen($value) <= $this->max;
+        if($value === $data[$this->field]){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -39,6 +43,6 @@ class Max extends Rule
      */
     public function message($field): string
     {
-        return $field.' Must Be A Max Of '.$this->max.' Characters';
+        return $field.' Doesnt Match With '. Validator::alias($this->field);
     }
 }
