@@ -28,7 +28,7 @@ class RuleMap
         'same' => Same::class,
         'numeric' => Numeric::class,
         'confirmed' => Confirmed::class,
-        'image' => Image::class
+        'image' => Image::class,
     ];
 
     /**
