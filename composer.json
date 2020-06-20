@@ -3,7 +3,9 @@
     "description": "A validator featuring rule objects, string rule mapping, wildcard validation and more",
     "keywords": [
         "infinitypaul",
-        "php-validator"
+        "php-validator",
+        "form validation",
+        "request validation"
     ],
     "homepage": "https://github.com/infinitypaul/php-validator",
     "license": "MIT",
