@@ -5,7 +5,11 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/infinitypaul/php-validator.svg?style=flat-square)](https://scrutinizer-ci.com/g/infinitypaul/php-validator)
 [![Total Downloads](https://img.shields.io/packagist/dt/infinitypaul/php-validator.svg?style=flat-square)](https://packagist.org/packages/infinitypaul/php-validator)
 
-Provides several different approaches to validate your application's incoming data
+This package can validate values according to flexible rules.
+
+It can take an associative array of values and a set of rules and validate the values to verify if they comply with the rules.
+
+The package can validate the values according to a given list of common rules, as well validate the values with custom rules implemented by external validation classes.
 
 ## Installation
 
