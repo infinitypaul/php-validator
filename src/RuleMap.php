@@ -23,7 +23,7 @@ class RuleMap
         'email' => Email::class,
         'max' => Max::class,
         'between' => Between::class,
-        'required_with'=> RequiredWith::class,
+        'required_with' => RequiredWith::class,
         'optional' => Optional::class,
         'same' => Same::class,
         'numeric' => Numeric::class,
@@ -32,9 +32,8 @@ class RuleMap
     ];
 
     /**
-     * @param $rule
-     * @param $options
-     *
+     * @param  $rule
+     * @param  $options
      * @return mixed
      */
     public static function resolve($rule, $options)
