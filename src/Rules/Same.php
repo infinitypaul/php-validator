@@ -11,7 +11,7 @@ class Same extends Rule
     /**
      * Same constructor.
      *
-     * @param $field
+     * @param  $field
      */
     public function __construct($field)
     {
@@ -19,10 +19,9 @@ class Same extends Rule
     }
 
     /**
-     * @param $field
-     * @param $value
-     * @param $data
-     *
+     * @param  $field
+     * @param  $value
+     * @param  $data
      * @return bool
      */
     public function passes($field, $value, $data): bool
@@ -35,8 +34,7 @@ class Same extends Rule
     }
 
     /**
-     * @param $field
-     *
+     * @param  $field
      * @return string
      */
     public function message($field): string

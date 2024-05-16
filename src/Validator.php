@@ -31,7 +31,7 @@ class Validator
     /**
      * Validator constructor.
      *
-     * @param array $data
+     * @param  array  $data
      */
     public function __construct(array $data)
     {
@@ -40,15 +40,14 @@ class Validator
     }
 
     /**
-     * @param array $data
-     * @param string $root
-     * @param array $results
-     *
+     * @param  array  $data
+     * @param  string  $root
+     * @param  array  $results
      * @return array
      */
     protected function extractWildCardData(array $data, $root = '', $results = []): array
     {
-        foreach ($data as $key=>$value) {
+        foreach ($data as $key => $value) {
             if (is_array($value)) {
                 $results = array_merge($results, $this->extractWildCardData($value, $root.$key.'.'));
             } else {
@@ -60,7 +59,7 @@ class Validator
     }
 
     /**
-     * @param array $rules
+     * @param  array  $rules
      */
     public function setRules(array $rules)
     {
@@ -72,7 +71,7 @@ class Validator
      */
     public function validate()
     {
-        foreach ($this->rules as $field=>$rules) {
+        foreach ($this->rules as $field => $rules) {
             $resolved = $this->resolveRules($rules);
             foreach ($resolved as $rule) {
                 $this->validateRule($field, $rule, $this->resolveRulesContainOptional($resolved));
@@ -94,8 +93,7 @@ class Validator
     }
 
     /**
-     * @param $rules
-     *
+     * @param  $rules
      * @return array
      */
     protected function resolveRules($rules)
@@ -110,21 +108,19 @@ class Validator
     }
 
     /**
-     * @param $rule
-     *
+     * @param  $rule
      * @return mixed
      */
     protected function getRuleFromString($rule)
     {
         return $this->ruleFromMap(
-           ($exploded = explode(':', $rule))[0],
-           explode(',', end($exploded)));
+            ($exploded = explode(':', $rule))[0],
+            explode(',', end($exploded)));
     }
 
     /**
-     * @param $rule
-     * @param $options
-     *
+     * @param  $rule
+     * @param  $options
      * @return mixed
      */
     protected function ruleFromMap($rule, $options)
@@ -133,9 +129,9 @@ class Validator
     }
 
     /**
-     * @param $field
-     * @param \Infinitypaul\Validator\Rules\Rule $rule
-     * @param bool $optional
+     * @param  $field
+     * @param  \Infinitypaul\Validator\Rules\Rule  $rule
+     * @param  bool  $optional
      */
     protected function validateRule($field, Rule $rule, $optional = false)
     {
@@ -150,9 +146,9 @@ class Validator
     }
 
     /**
-     * @param $field
-     * @param $value
-     * @param \Infinitypaul\Validator\Rules\Rule $rule
+     * @param  $field
+     * @param  $value
+     * @param  \Infinitypaul\Validator\Rules\Rule  $rule
      */
     protected function validateUsingRuleObject($field, $value, Rule $rule)
     {
@@ -162,8 +158,7 @@ class Validator
     }
 
     /**
-     * @param $field
-     *
+     * @param  $field
      * @return array
      */
     protected function getMatchingData($field)
@@ -172,15 +167,15 @@ class Validator
         $fieldRegex = str_replace('*', '([^\.]+)', $field);
         //Take The keys for the data
         $dataKeys = array_keys($this->data);
+
         //Find The Value That Relate
         //return preg_grep('/^'.$fieldRegex.'/', $dataKeys);
         return preg_grep('/^'.$fieldRegex.'$/', $dataKeys);
     }
 
     /**
-     * @param $field
-     * @param $data
-     *
+     * @param  $field
+     * @param  $data
      * @return mixed|null
      */
     protected function getFieldValue($field, $data)
@@ -210,8 +205,7 @@ class Validator
     }
 
     /**
-     * @param array $fields
-     *
+     * @param  array  $fields
      * @return array
      */
     public static function aliases(array $fields): array
