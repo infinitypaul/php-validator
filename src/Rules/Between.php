@@ -16,8 +16,8 @@ class Between extends Rule
     /**
      * Between constructor.
      *
-     * @param $lower
-     * @param $upper
+     * @param  $lower
+     * @param  $upper
      */
     public function __construct($lower, $upper)
     {
@@ -26,10 +26,9 @@ class Between extends Rule
     }
 
     /**
-     * @param $field
-     * @param $value
-     * @param $data
-     *
+     * @param  $field
+     * @param  $value
+     * @param  $data
      * @return bool
      */
     public function passes($field, $value, $data): bool
@@ -46,8 +45,7 @@ class Between extends Rule
     }
 
     /**
-     * @param $field
-     *
+     * @param  $field
      * @return string
      */
     public function message($field): string

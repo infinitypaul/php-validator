@@ -10,8 +10,8 @@ class ErrorBag
     protected $errors = [];
 
     /**
-     * @param $key
-     * @param $value
+     * @param  $key
+     * @param  $value
      */
     public function add($key, $value)
     {
